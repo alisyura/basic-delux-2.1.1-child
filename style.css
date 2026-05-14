@@ -1,0 +1,698 @@
+/*
+Theme Name: Thema Filialis ex basic-delux-2.1.1
+Template:   basic-delux-2.1.1
+*/
+
+/* Дочерние стили пишите тут */
+       /* Основные стили для баннера */
+        .cookie-banner {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: #1a2c3e;   /* Тёмный спокойный цвет, не отвлекает */
+            color: #f0f0f0;
+            padding: 15px 20px;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+            font-size: 14px;
+            line-height: 1.5;
+            z-index: 9999;
+            box-shadow: 0 -2px 10px rgba(0,0,0,0.2);
+            transition: transform 0.3s ease-in-out;
+            transform: translateY(0);
+        }
+
+        /* Контейнер для гибкого размещения текста и кнопки */
+        .cookie-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            justify-content: space-between;
+            gap: 15px;
+        }
+
+        /* Текстовая часть */
+        .cookie-text {
+            flex: 2;
+            min-width: 200px;
+        }
+
+        /* Ссылка на политику */
+        .cookie-text a {
+            color: #ffb347;
+            text-decoration: underline;
+            transition: opacity 0.2s;
+        }
+        .cookie-text a:hover {
+            opacity: 0.8;
+            text-decoration: none;
+        }
+
+        /* Кнопка */
+        .cookie-button {
+            background: #4caf50;
+            color: white;
+            border: none;
+            padding: 8px 20px;
+            border-radius: 30px;
+            font-size: 14px;
+            font-weight: 500;
+            cursor: pointer;
+            transition: background 0.2s, transform 0.1s;
+            white-space: nowrap;
+            flex-shrink: 0;
+        }
+        .cookie-button:hover {
+            background: #45a049;
+        }
+        .cookie-button:active {
+            transform: scale(0.97);
+        }
+
+        /* Адаптив для телефонов: кнопка на всю ширину */
+        @media (max-width: 550px) {
+            .cookie-container {
+                flex-direction: column;
+                text-align: center;
+            }
+            .cookie-button {
+                width: 100%;
+                text-align: center;
+                padding: 12px 20px;
+            }
+        }
+
+        /* Стиль для скрытого состояния (будет добавлен класс JS) */
+        .cookie-banner.hidden {
+            transform: translateY(100%);
+            pointer-events: none;
+        }
+
+/* Картинка-ссылка в боковом сайдбаре */
+ /* Сброс стандартных отступов у ссылки, чтобы не было лишних подчеркиваний */
+        .card-link {
+            display: inline-block;          /* чтобы блок был по ширине контента */
+            text-decoration: none;          /* убираем подчеркивание текста ссылки */
+            color: inherit;                 /* наследуем цвет текста */
+            font-family: system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+            max-width: 300px;               /* ограничиваем ширину по ширине картинки */
+        }
+
+        /* Блок-обёртка для картинки и плашки (нужен для точного позиционирования плашки под картинкой) */
+        .card-content {
+            display: flex;
+            flex-direction: column;          /* элементы вертикально: картинка сверху, плашка снизу */
+            width: 100%;
+        }
+
+        /* Картинка — занимает всю ширину родителя, высота auto для сохранения пропорций */
+        .card-content img {
+            width: 100%;
+            height: auto;                   /* сохраняем пропорции (300x300, но при 100% ширины) */
+            display: block;                 /* убираем лишний отступ снизу у img (inline-баг) */
+        }
+
+        /* Плашка с текстом — прямо под картинкой */
+        .caption {
+            background-color: #3f94bf;      /* тёмно-синий фон, можно заменить на любой */
+            color: white;                   /* цвет текста */
+            text-align: center;
+            padding: 12px 8px;
+            font-size: 1rem;
+            font-weight: 500;
+            letter-spacing: 0.5px;
+            transition: background-color 0.2s ease;
+            /* Эффект при наведении на всю ссылку (опционально) */
+        }
+
+        /* Делаем легкое изменение при наведении на всю карточку (ссылку) */
+        .card-link:hover .caption {
+            background-color: #65a9cc;      /* чуть темнее при ховере */
+        }
+
+        /* Для красоты — легкая тень и скругления (опционально) */
+        .card-link {
+            border-radius: 12px;
+            overflow: hidden;               /* чтобы скругление обрезало и картинку, и плашку */
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+
+        .card-link:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 12px 20px rgba(0, 0, 0, 0.15);
+        }
+
+
+/* Секция похожих записей */
+.custom-related-posts {
+    margin-top: 40px;
+    padding-top: 20px;
+    border-top: 1px solid #eee;
+}
+
+.custom-related-posts h3 {
+    margin-bottom: 20px;
+    font-size: 1.5rem;
+}
+
+/* Горизонтальная сетка */
+.related-posts-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: flex-start;
+}
+
+/* Каждая карточка */
+.related-post-item {
+    flex: 1 1 200px;
+    min-width: 180px;
+    background: #f9f9f9;
+    border-radius: 8px;
+    overflow: hidden;
+    transition: transform 0.2s ease;
+}
+
+.related-post-item:hover {
+    transform: translateY(-3px);
+}
+
+/* Ссылка */
+.related-post-link {
+    text-decoration: none;
+    color: inherit;
+    display: block;
+}
+
+/* Стили для заголовка (теперь он сверху) */
+.related-post-title {
+    padding: 12px 12px 0 12px;
+    margin: 0;
+    font-size: 1rem;
+    line-height: 1.4;
+    text-align: center;
+    font-weight: 600;
+}
+
+/* Миниатюра */
+.related-post-thumb {
+    margin: 12px;
+    aspect-ratio: 16 / 9;
+    overflow: hidden;
+    border-radius: 4px;
+}
+
+.related-post-thumb img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.2s ease;
+}
+
+.related-post-item:hover .related-post-thumb img {
+    transform: scale(1.03);
+}
+
+/* Анонс (excerpt) */
+.related-post-excerpt {
+    padding: 0 12px 12px 12px;
+    font-size: 0.85rem;
+    line-height: 1.4;
+    color: #555;
+    text-align: center;
+}
+
+/* Сообщение "нет статей" */
+.related-posts-none {
+    padding: 20px;
+    background: #f5f5f5;
+    text-align: center;
+    border-radius: 8px;
+}
+
+/* Адаптив для мобильных */
+@media (max-width: 768px) {
+    .related-post-item {
+        flex: 1 1 100%;
+    }
+}
+
+
+
+
+
+/* Обычное состояние — яркая подсветка */
+.highlight-menu {
+    background-color: #ff6b35;
+    border-radius: 10px;
+    padding: 5px 15px !important;
+}
+
+.highlight-menu a {
+    color: white !important;
+    font-weight: bold;
+}
+
+/* Активная страница (текущий пункт меню) — темнее */
+.highlight-menu.current-menu-item,
+.highlight-menu.current_page_item {
+    background-color: #c73e0a !important;
+}
+
+/* Убираем стандартное выделение темы (если оно есть) */
+.highlight-menu.current-menu-item a,
+.highlight-menu.current_page_item a {
+    color: white !important;
+}
+
+
+
+/* Дисклеймер в подвале */
+.footer-disclaimer {
+  font-size: 0.8rem;      /* 12px (если база 16px) */
+  line-height: 1;
+  padding:  0;
+}
+
+.footer-disclaimer p {
+  margin:  0;
+}
+
+.footer-disclaimer strong {
+  font-weight: 600;
+}
+
+@media (max-width: 768px) {
+  .footer-disclaimer {
+    font-size: 0.6875rem;  /* 11px на мобильных */
+    line-height: 1.2;
+  }
+}
+
+
+
+/* для отображения таблиц на мобильных в виде карточек*/
+/* Контейнер таблицы */
+.adaptive-table {
+    width: 100%;
+    border-collapse: collapse;
+    background: #ffffff;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+}
+
+.adaptive-table th {
+    background: #3f94bf;
+    color: #ffffff;
+    padding: 15px;
+    text-align: left;
+}
+
+.adaptive-table td {
+    padding: 15px;
+    border-bottom: 1px solid #e5e7eb;
+}
+
+.adaptive-table tr:last-child td {
+    border-bottom: none;
+}
+
+.adaptive-table tr:hover {
+    background: #f9fafb;
+}
+
+/* Адаптив только для таблицы */
+@media (max-width: 768px) {
+    .adaptive-table,
+    .adaptive-table thead,
+    .adaptive-table tbody,
+    .adaptive-table th,
+    .adaptive-table td,
+    .adaptive-table tr {
+        display: block;
+    }
+
+    .adaptive-table {
+        margin-bottom: 20px;
+    }    
+
+    .adaptive-table thead {
+        display: none;
+    }
+    
+    .adaptive-table tr {
+        margin-bottom: 20px;
+        border: 1px solid #e5e7eb;
+        border-radius: 12px;
+        padding: 5px;
+        background: #ffffff;
+        box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+    }
+    
+    .adaptive-table tr:last-child {
+        margin-bottom: 0;
+    }
+
+    .adaptive-table td {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 10px 0;
+        border-bottom: 1px solid #e5e7eb;
+        text-align: right;
+    }
+    
+    .adaptive-table td:last-child {
+        border-bottom: none;
+    }
+    
+    .adaptive-table td::before {
+        content: attr(data-label);
+        font-weight: 600;
+        text-align: left;
+        flex: 1;
+        color: #3f94bf;
+    }
+}
+
+
+
+/* Urlspan 64 */
+.span64 {
+    color: #3f94bf;
+    text-decoration: underline;
+    cursor: pointer;
+}
+
+.span64:hover {
+    color: #1d4ed8;
+    text-decoration: none;
+}
+
+
+
+/* виджет свежие записи */
+/* виджет свежие записи - стандартный режим (колонка) */
+.widget_my_recent_posts .my-recent-posts-list,
+.my-recent-posts-list {
+    list-style: none !important;
+    margin: 0 !important;
+    padding: 0 !important;
+}
+
+.widget_my_recent_posts .my-recent-posts-list li,
+.my-recent-posts-list li {
+    list-style: none !important;
+    display: block !important;
+}
+
+.my-recent-post-item {
+    display: flex;
+    gap: 12px;
+    margin-bottom: 15px;
+    padding-bottom: 15px;
+    border-bottom: 1px solid #eee;
+}
+
+.my-recent-post-item:last-child {
+    border-bottom: none;
+    margin-bottom: 0;
+    padding-bottom: 0;
+}
+
+.my-recent-post-thumb {
+    flex-shrink: 0;
+    width: 60px;
+}
+
+.my-recent-post-thumb img {
+    width: 100%;
+    height: auto;
+    border-radius: 4px;
+}
+
+.my-recent-post-content {
+    flex-grow: 1;
+}
+
+.my-recent-post-title {
+    display: block;
+    font-weight: 500;
+    text-decoration: none;
+    margin-bottom: 4px;
+}
+
+.my-recent-post-title:hover {
+    text-decoration: underline;
+}
+
+.my-recent-post-date {
+    font-size: 12px;
+    color: #666;
+}
+
+/* ===== РЕЖИМ ОБТЕКАНИЯ ТЕКСТА ===== */
+.my-recent-posts-wrap .my-recent-post-item {
+    display: block !important; /* Отключаем flex */
+    overflow: hidden; /* Содержит float */
+}
+
+.my-recent-posts-wrap .my-recent-post-thumb {
+    float: left;
+    width: 60px;
+    margin-right: 15px; /* Отступ от картинки к тексту */
+    margin-bottom: 8px; /* Отступ снизу для случая короткого текста */
+}
+
+.my-recent-posts-wrap .my-recent-post-content {
+    display: block; /* Отключаем flex-grow */
+}
+
+/* Очистка для длинного текста - после того как текст закончился, он не залазит под картинку */
+.my-recent-posts-wrap .my-recent-post-content:after {
+    content: "";
+    display: table;
+    clear: both;
+}
+
+/* Дополнительная стилизация для длинного текста */
+.my-recent-posts-wrap .my-recent-post-title {
+    margin-top: 0;
+}
+
+/* Если дата должна быть после всего текста */
+.my-recent-posts-wrap .my-recent-post-date {
+    display: inline-block;
+    margin-top: 4px;
+}
+
+/* Для длинных заголовков - они тоже обтекают картинку */
+.my-recent-posts-wrap .my-recent-post-title {
+    display: inline;
+}
+
+/* Опционально: небольшой эффект при наведении */
+.my-recent-posts-wrap .my-recent-post-thumb img {
+    transition: transform 0.2s ease;
+}
+
+.my-recent-posts-wrap .my-recent-post-thumb img:hover {
+    transform: scale(1.05);
+}
+
+
+
+
+/* блок автора в конце постов */
+.custom-author-box {
+    background: #f9f9f9;
+    border-left: 4px solid #3f94bf; /* Цвет как у вашей темы */
+    padding: 20px;
+    margin: 40px 0;
+    display: flex;
+    align-items: flex-start;
+    gap: 20px;
+    border-radius: 4px;
+}
+.custom-author-avatar {
+    flex-shrink: 0;
+}
+.custom-author-avatar img {
+    border-radius: 50%;
+    border: 2px solid white;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+.custom-author-info {
+    flex-grow: 1;
+}
+.custom-author-title {
+    margin: 0 0 10px 0;
+    font-size: 1.2em;
+    color: #333;
+}
+.custom-author-description p {
+    margin: 0 0 10px 0;
+    color: #555;
+}
+.custom-author-link {
+    font-size: 0.9em;
+    text-decoration: none;
+    font-weight: bold;
+}
+/* Адаптация для мобильных телефонов */
+@media (max-width: 600px) {
+    .custom-author-box {
+        display: block;           /* Отключаем flex */
+        overflow: hidden;        /* Очистка float */
+    }
+    
+    .custom-author-avatar {
+        float: left;             /* Картинка слева, текст обтекает */
+        margin-right: 20px;
+        margin-bottom: 10px;
+    }
+    
+    .custom-author-info {
+        display: block;          /* Информация обтекает картинку */
+    }
+    
+    .custom-author-links {
+        clear: both;             /* Чтобы соцсети не обтекали картинку */
+        justify-content: flex-start;
+    }
+}
+
+
+
+/* блок для соцсетей в блоке автора */
+.custom-author-links {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 15px;
+    margin-top: 10px;
+}
+
+.author-socials {
+    display: flex;
+    gap: 12px;
+    align-items: center;
+}
+
+.author-social-link {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0.7;
+    transition: opacity 0.2s ease;
+    text-decoration: none;
+}
+
+.author-social-link:hover {
+    opacity: 1;
+    text-decoration: none;
+}
+
+.author-social-link img {
+    display: block;
+    width: 20px;
+    height: 20px;
+}
+
+
+
+/* lighbox */
+/* Модальное окно для сертификатов */
+.lightbox-modal {
+    display: none;
+    position: fixed;
+    z-index: 9999;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.9);
+    cursor: pointer;
+}
+
+.lightbox-modal-content {
+    display: block;
+    max-width: 90%;
+    max-height: 90%;
+    margin: auto;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border-radius: 8px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+}
+
+.lightbox-modal-close {
+    position: absolute;
+    top: 20px;
+    right: 35px;
+    color: #fff;
+    font-size: 40px;
+    font-weight: bold;
+    transition: 0.3s;
+    cursor: pointer;
+    z-index: 10000;
+}
+
+.lightbox-modal-close:hover {
+    color: #bbb;
+}
+
+#lightboxModalCaption {
+    position: absolute;
+    bottom: 20px;
+    left: 0;
+    width: 100%;
+    text-align: center;
+    color: #ccc;
+    font-size: 14px;
+    padding: 10px;
+    background: rgba(0,0,0,0.5);
+}
+
+/* Анимация */
+.lightbox-modal-content {
+    animation: zoom 0.3s ease;
+}
+
+@keyframes zoom {
+    from { transform: translate(-50%, -50%) scale(0.8); opacity: 0; }
+    to { transform: translate(-50%, -50%) scale(1); opacity: 1; }
+}
+
+.lightbox-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+    margin: 30px 0;
+}
+
+.lightbox-grid a {
+    display: block;
+    transition: transform 0.2s ease;
+}
+
+.lightbox-grid a:hover {
+    transform: scale(1.03);
+}
+
+.lightbox-grid img {
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    border: 1px solid #eee;
+}
+
+
