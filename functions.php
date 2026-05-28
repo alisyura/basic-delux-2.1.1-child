@@ -34,6 +34,7 @@ $modules = [
 //    'post-notes.php',            // заметки к посту/странице прям под редактором
     'lightbox-modal.php',        // модальный lightbox
 //    'disable-json-ld-yoast.php', // отключить json-ld в yoast-seo
+    'breadcrump.php',            // вставляем хлебные крошки в JSON-LD RankMath
 
 ];
 
@@ -43,3 +44,7 @@ foreach ($modules as $module) {
         include_once $file;
     }
 }
+
+
+
+
