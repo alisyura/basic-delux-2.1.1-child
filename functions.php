@@ -35,6 +35,7 @@ $modules = [
     'lightbox-modal.php',        // модальный lightbox
 //    'disable-json-ld-yoast.php', // отключить json-ld в yoast-seo
     'breadcrump.php',            // вставляем хлебные крошки в JSON-LD RankMath
+    'keywords_rankmath_enable.php', // добавить в html вывод тэга keywords
 
 ];
 
