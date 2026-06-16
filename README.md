@@ -1,4 +1,4 @@
-# basic-delux-2.1.1-child
+# H1 basic-delux-2.1.1-child
 
 Дочерняя тема для Wordpress
 
