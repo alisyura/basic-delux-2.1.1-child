@@ -78,7 +78,7 @@ basic-delux-2.1.1-child/
 
 - WordPress 5.0+
 - PHP 7.4+
-- Тема > **basic-delux-2.1.1**
+- Тема **basic-delux-2.1.1**
 
 ## Описание основных файлов и папок
 
