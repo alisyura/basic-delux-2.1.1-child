@@ -5,7 +5,7 @@
 ## Описание темы
 
 1. В панель редактора добавляется кнопка для кодирования исходящих ссылок в base64
-2. Если таблице <table> поставить class='adaptive-table', таблица на мобильных будет выводиться в виде карточек, что исключает горизонтальную прокрутку
+2. Если таблице `<table>` поставить class='adaptive-table', таблица на мобильных будет выводиться в виде карточек, что исключает горизонтальную прокрутку
 3. Убирает лишнее из кода, блокирует доступ к rest api и к данным пользователей
 4. Убирает комментарии
 5. Создает возможность lightbox без плагина
@@ -39,14 +39,14 @@ basic-delux-2.1.1-child/
 │ ├── author-box.php                 # Блок автора под постом
 │ ├── base64-links.php               # Конвертер ссылок в base64
 │ ├── breadcrump.php                 # Хлебные крошки
-│ ├── cleanup-head.php               # Очистка <head> от лишнего
+│ ├── cleanup-head.php               # Очистка `<head>` от лишнего
 │ ├── disable-jquery.php             # Отключение jQuery
 │ ├── disable-json-ld-yoast.php      # Отключение JSON-LD от Yoast
 │ ├── footer-widgets.php             # Виджеты в футере
 │ ├── has-menu-items.php             # Проверка наличия пунктов меню
 │ ├── hide-comments.php              # Скрытие комментариев
 │ ├── highlight-menu-item.php        # Подсветка активного пункта меню
-│ ├── howto-schema.php               # Микроразметка HowTo (Schema.org)
+│ ├── howto-schema.php               # Микроразметка HowTo
 │ ├── keywords_rankmath_enable.php   # Включение ключевых слов RankMath
 │ ├── lightbox-modal.php             # Модальное окно Lightbox
 │ ├── post-notes.php                 # Заметки к постам
